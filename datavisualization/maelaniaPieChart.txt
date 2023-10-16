@@ -1,0 +1,27 @@
+The provided code outlines the process of creating a pie chart using the Google Charts library, specifically by fetching data from a Google Sheets document. Here's the breakdown of the contents:
+
+Loading the Google Charts Library:
+
+google.charts.load('current', { packages: ['corechart'] });: This line loads the most current version of the Google Charts library, specifically the "corechart" package which includes basic chart types like Pie, Bar, Column, and Line charts.
+Set Callback Function:
+
+google.charts.setOnLoadCallback(drawingVisualization);: Once the Google Charts library is fully loaded, the drawingVisualization function will be called.
+Chart Configuration Options:
+
+The options variable contains several settings for the chart:
+title: The title of the chart.
+width & height: Dimensions of the chart.
+colors: A list of colors that may be used by the chart.
+legend: Position of the chart's legend.
+Drawing the Visualization:
+
+drawingVisualization(): This function initiates the process of fetching data and drawing the chart.
+A new google.visualization.Query is created to fetch data from a specific Google Sheet.
+The query.setQuery line specifies which data from the sheet should be fetched. It's looking for the count of entries in the B column where the E column is TRUE and the D column is either 1 or 2.
+The query then sends a request, and the response is handled by the handleQueryResponse function.
+Handling the Query Response:
+
+handleQueryResponse(response): This function processes the data received from the Google Sheet and draws the chart.
+If there's an error in the response, it shows an alert with the error message.
+If the response is successful, it extracts the data table from the response and uses it to draw a Pie Chart in an HTML element with the ID chart_div, applying the previously defined options.
+In summary, this code loads the Google Charts library, fetches specific data from a Google Sheet, and then visualizes that data in a pie chart with customized options.
